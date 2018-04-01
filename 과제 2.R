@@ -141,7 +141,7 @@ a[5]
 
 # 3
 
-A <- matrix(runif(50), 50, 5)
+A <- matrix(runif(100), 50, 5)
 if (class(A) != 'matrix') stop()
 v = rep(0, nrow(A))
 for (i in 1:nrow(A)) 
