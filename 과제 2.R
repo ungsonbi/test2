@@ -29,9 +29,9 @@ yinfo
 
 y1 <- matrix(0, 5, 5)
 for (i in 1:5) 
-  {
+{
   for (j in 1:5) 
-    {
+  {
     if (i != j) {
       y1[i,j] <- 0
     } else {
@@ -59,7 +59,7 @@ a <- c()
 isrdata <- is.na(rdata)
 for (i in 1:nrow(isrdata)) {
   if (isrdata[i, 2] == TRUE | isrdata[i, 3] == TRUE) {
-   a[i] <- i
+    a[i] <- i
   }
 }
 a <- na.omit(a)
@@ -67,16 +67,23 @@ rdata1 <- rdata[-a,]
 rdata1
 
 # 4
-four <- list()
-four[[1]] <- c(TRUE, FALSE)
-four[[2]] <- matrix(c(1, 0, 0, 1), 2, 2)
-four[[3]] <- seq(0, 1, length = 100)
-for (i in 4:7) 
-  {
-   four[[i]] <- i - 3
-}
-four
 
+temp <- list()
+temp[[1]] <- c(TRUE, FALSE)
+temp[[2]] <- matrix(c(1, 0, 0, 1), 2, 2)
+temp[[3]] <- seq(0, 1, length = 100)
+for (i in 4:7) 
+{
+  temp[[i]] <- i - 3
+}
+temp
+
+temp <- temp[-2]
+temp
+
+temp[3]
+
+length(temp)
 
 # 5
 
@@ -180,10 +187,10 @@ for (i in 1:10)
 { 
   for (j in 1:1000)
   {
-  if(sid[j] == i)
-  {
-    m.mat[i,] <- m.mat[i,] + x[j,]
-    a[i] <- a[i] + 1
+    if(sid[j] == i)
+    {
+      m.mat[i,] <- m.mat[i,] + x[j,]
+      a[i] <- a[i] + 1
     }
   }
 }
@@ -195,13 +202,13 @@ m.mat
 
 idist <- matrix(0, 1000, 10)
 for (i in 1:1000) 
-  {
+{
   for (j in 1:10)
   {
     d1 <- sum(x[i,]*m.mat[j,])
     d2 <- sqrt(sum((x[i,])^2))*sqrt(sum((m.mat[j,])^2))
     idist[i,j] <- d1/d2
-}
+  }
 }
 str(idist)
 
@@ -262,26 +269,26 @@ set.seed(1)
 m1 = 10
 m2 = 5
 num = 0
-  for (i in 1:4)
-    {
-    p <- rbinom(1, 1, 1/2)
-    if (p == 0) 
-           {
-      m1 <- m1 - 1
-      m2 <- m2 + 1
-    } else {
-      m1 <- m1 + 1
-      m2 <- m2 - 1
-           }
-    num <- num + 1
-    if (m1*m2 == 0) 
-    {
-      print(num)
-      print(m1)
-      print(m2)
-      stop()
-    }
-    }
+for (i in 1:4)
+{
+  p <- rbinom(1, 1, 1/2)
+  if (p == 0) 
+  {
+    m1 <- m1 - 1
+    m2 <- m2 + 1
+  } else {
+    m1 <- m1 + 1
+    m2 <- m2 - 1
+  }
+  num <- num + 1
+  if (m1*m2 == 0) 
+  {
+    print(num)
+    print(m1)
+    print(m2)
+    stop()
+  }
+}
 print(m1)
 print(m2)
 
@@ -317,31 +324,31 @@ for (i in 1:10000)
 mm <- rep(0, 2)
 for (k in 1:200)
 {
- set.seed(k)
- m1 = 10
- m2 = 5
- num = 0
- for (i in 1:10000000)
- {
-   p <- rbinom(1, 1, 1/2)
-   if (p == 0) 
-   {
-     m1 <- m1 - 1
-     m2 <- m2 + 1
-   } else {
-     m1 <- m1 + 1
-     m2 <- m2 - 1
-   }
-   num <- num + 1
-   if (m1*m2 == 0) 
-   {
-     if (m1 > m2)
+  set.seed(k)
+  m1 = 10
+  m2 = 5
+  num = 0
+  for (i in 1:10000000)
+  {
+    p <- rbinom(1, 1, 1/2)
+    if (p == 0) 
+    {
+      m1 <- m1 - 1
+      m2 <- m2 + 1
+    } else {
+      m1 <- m1 + 1
+      m2 <- m2 - 1
+    }
+    num <- num + 1
+    if (m1*m2 == 0) 
+    {
+      if (m1 > m2)
       {
-      mm[1] <- mm[1] + 1
-     } else {
-      mm[2] <- mm[2] + 1
-     }
-   break
+        mm[1] <- mm[1] + 1
+      } else {
+        mm[2] <- mm[2] + 1
+      }
+      break
     }
   }
 } 
@@ -480,15 +487,3 @@ for (k in 1:200)
   }
 } 
 mm
-
-
-
-
-
-
-
-
-
-
-
-
