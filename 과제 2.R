@@ -27,10 +27,10 @@ y
 yinfo <- dim(y)
 yinfo
 
-y1 <- matrix(0, 5, 5)
+y1 <- matrix(0, 5, 4)
 for (i in 1:5) 
 {
-  for (j in 1:5) 
+  for (j in 1:4) 
   {
     if (i != j) {
       y1[i,j] <- 0
